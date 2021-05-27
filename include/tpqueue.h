@@ -5,20 +5,19 @@
 
 template<typename T>
 class TPQueue {
-  // Сюда помещается описание структуры "Очередь с приоритетами"
  struct ITEM {
     T data;
     ITEM *next;
-  };
+ };
 
  private:
   ITEM *head;
   ITEM *tail;
   ITEM *create(T data) {
-    ITEM *T = new ITEM;
-    T->data = data;
-    T->next = nullptr;
-    return T;
+    ITEM *t = new ITEM;
+    t->data = data;
+    t->next = nullptr;
+    return t;
   }
 
  public:
@@ -37,9 +36,9 @@ class TPQueue {
       } else {
         while (temp->next) {
           if (temp->next->data.prior < data.prior) {
-            ITEM *T = create(data);
+            ITEM *t = create(data);
             t->next = temp->next;
-            temp->next = T;
+            temp->next = t;
             break;
           } else {
             temp = temp->next;
